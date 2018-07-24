@@ -24,20 +24,20 @@ Created a new local CA at "/Users/filippo/Library/Application Support/mkcert" �
 The local CA is now installed in the system trust store! ⚡️
 The local CA is now installed in the Firefox trust store (requires restart)! 🦊
 
-$ mkcert dev.test.local localhost 127.0.0.1 ::1
+$ mkcert  localhost 127.0.0.1 ::1 dev.test.local
 Using the local CA at "/Users/filippo/Library/Application Support/mkcert" ✨
 
 Created a new certificate valid for the following names 📜
- - "dev.test.local"
  - "localhost"
  - "127.0.0.1"
  - "::1"
+ - "dev.test.local"
 ```
 
 ## Test go with https server on localhost
 
 ```go
-	err := http.ListenAndServeTLS(":8081", "dev.test.local+3.pem", "dev.test.local+3-key.pem", nil)
+	err := http.ListenAndServeTLS(":4433", "localhost+3.pem", "localhost+3-key.pem", nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
